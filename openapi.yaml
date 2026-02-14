@@ -1,23 +1,25 @@
 openapi: 3.0.4
 info:
-  title: SEO Validator
-  description: SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
+  title: SEO Quick Validator
+  description: >-
+    SEO Validator is a simple tool for validating SEO metrics. It returns a list
+    of issues that need to be fixed to improve the SEO metrics of a web page.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/seovalidator:
     post:
       summary: Validate SEO Metrics
-      description: SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
+      description: Validate the SEO metrics of a web page
       operationId: seovalidator
       parameters: []
       responses:
@@ -35,25 +37,24 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
-                  url: https://ebay.com
+                  url: https://apiverve.com
                   passed: false
-                  entries: 3
+                  entries: 2
                   output:
-                  - There are 319 'a' tag without rel attribute.
-                  - This HTML does not have 'meta name=descriptions' in 'head'
-                  - This HTML does not have 'meta name=keywords' in 'head'
+                    - There are 62 'a' tag without rel attribute.
+                    - This HTML does not have 'meta name=descriptions' in 'head'
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
       requestBody:
         required: true
         content:
@@ -64,11 +65,8 @@ paths:
                 url:
                   type: string
                   description: The URL of the web page to validate the SEO metrics of
-                  example: https://apiverve.com
               required:
-              - url
-              example:
-                url: https://apiverve.com
+                - url
 components:
   securitySchemes:
     api_key:
@@ -76,4 +74,6 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
+sampleRequest:
+  url: https://apiverve.com
