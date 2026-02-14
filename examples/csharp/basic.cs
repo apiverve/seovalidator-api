@@ -1,7 +1,7 @@
 /*
- * SEO Validator API - Basic Usage Example
+ * SEO Quick Validator API - Basic Usage Example
  *
- * This example demonstrates the basic usage of the SEO Validator API.
+ * This example demonstrates the basic usage of the SEO Quick Validator API.
  * API Documentation: https://docs.apiverve.com/ref/seovalidator
  */
 
@@ -14,28 +14,22 @@ using System.Linq;
 
 namespace APIVerve.Examples
 {
-    class SEOValidatorExample
+    class SEOQuickValidatorExample
     {
         private static readonly string API_KEY = Environment.GetEnvironmentVariable("APIVERVE_API_KEY") ?? "YOUR_API_KEY_HERE";
         private static readonly string API_URL = "https://api.apiverve.com/v1/seovalidator";
 
         /// <summary>
-        /// Make a POST request to the SEO Validator API
+        /// Make a GET request to the SEO Quick Validator API
         /// </summary>
-        static async Task<JsonDocument> CallSEOValidatorAPI()
+        static async Task<JsonDocument> CallSEOQuickValidatorAPI()
         {
             try
             {
                 using var client = new HttpClient();
                 client.DefaultRequestHeaders.Add("x-api-key", API_KEY);
 
-                // Request body
-                var requestBody &#x3D; new { url &#x3D; &quot;https://apiverve.com&quot; };
-
-                var jsonContent = JsonSerializer.Serialize(requestBody);
-                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-                var response = await client.PostAsync(API_URL, content);
+                var response = await client.GetAsync(API_URL);
 
                 // Check if response is successful
                 response.EnsureSuccessStatusCode();
@@ -68,9 +62,9 @@ namespace APIVerve.Examples
 
         static async Task Main(string[] args)
         {
-            Console.WriteLine("📤 Calling SEO Validator API...\n");
+            Console.WriteLine("📤 Calling SEO Quick Validator API...\n");
 
-            var result = await CallSEOValidatorAPI();
+            var result = await CallSEOQuickValidatorAPI();
 
             if (result != null)
             {
