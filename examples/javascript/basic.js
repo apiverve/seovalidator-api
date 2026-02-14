@@ -1,7 +1,7 @@
 /**
- * SEO Validator API - Basic Usage Example
+ * SEO Quick Validator API - Basic Usage Example
  *
- * This example demonstrates the basic usage of the SEO Validator API.
+ * This example demonstrates the basic usage of the SEO Quick Validator API.
  * API Documentation: https://docs.apiverve.com/ref/seovalidator
  */
 
@@ -9,22 +9,15 @@ const API_KEY = process.env.APIVERVE_API_KEY || 'YOUR_API_KEY_HERE';
 const API_URL = 'https://api.apiverve.com/v1/seovalidator';
 
 /**
- * Make a POST request to the SEO Validator API
+ * Make a GET request to the SEO Quick Validator API
  */
-async function callSEOValidatorAPI() {
+async function callSEOQuickValidatorAPI() {
   try {
-    // Request body
-    const requestBody &#x3D; {
-    &quot;url&quot;: &quot;https://apiverve.com&quot;
-};
-
     const response = await fetch(API_URL, {
-      method: 'POST',
+      method: 'GET',
       headers: {
-        'x-api-key': API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(requestBody)
+        'x-api-key': API_KEY
+      }
     });
 
     // Check if response is successful
@@ -51,7 +44,7 @@ async function callSEOValidatorAPI() {
 }
 
 // Run the example
-callSEOValidatorAPI()
+callSEOQuickValidatorAPI()
   .then(result => {
     if (result) {
       console.log('\n📊 Final Result:');
