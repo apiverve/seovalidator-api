@@ -1,16 +1,21 @@
-# SEO Validator API
+# [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 
-> SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
+SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
+
+The SEO Quick Validator API provides a simple, reliable way to integrate seo quick validator functionality into your applications. Built for developers who need production-ready seo quick validator capabilities without the complexity of building from scratch.
+
+**[View API Details →](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com)
-[![Method](https://img.shields.io/badge/Method-POST-blue.svg)](#)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
 **Available on:**
 [![npm](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)](https://www.npmjs.com/package/@apiverve/seovalidator)
-[![NuGet](https://img.shields.io/badge/NuGet-004880?style=flat&logo=nuget&logoColor=white)](https://www.nuget.org/packages/APIVerve.API.SEOValidator)
+[![NuGet](https://img.shields.io/badge/NuGet-004880?style=flat&logo=nuget&logoColor=white)](https://www.nuget.org/packages/APIVerve.API.SEOQuickValidator)
 [![PyPI](https://img.shields.io/badge/PyPI-3776AB?style=flat&logo=python&logoColor=white)](https://pypi.org/project/apiverve-seovalidator/)
+[![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)](#-go)
 [![JitPack](https://img.shields.io/badge/JitPack-2E7D32?style=flat&logo=android&logoColor=white)](#-android-jitpack)
 
 ---
@@ -20,19 +25,13 @@
 ### Using JavaScript
 
 ```javascript
-async function callSEOValidatorAPI() {
+async function callSEOQuickValidatorAPI() {
     try {
-        const requestBody = {
-    "url": "https://apiverve.com"
-};
-
         const response = await fetch('https://api.apiverve.com/v1/seovalidator', {
-            method: 'POST',
+            method: 'GET',
             headers: {
-                'x-api-key': 'YOUR_API_KEY_HERE',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
+                'x-api-key': 'YOUR_API_KEY_HERE'
+            }
         });
 
         const data = await response.json();
@@ -42,18 +41,14 @@ async function callSEOValidatorAPI() {
     }
 }
 
-callSEOValidatorAPI();
+callSEOQuickValidatorAPI();
 ```
 
 ### Using cURL
 
 ```bash
-curl -X POST "https://api.apiverve.com/v1/seovalidator" \
-  -H "x-api-key: YOUR_API_KEY_HERE" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "param": "value"
-  }'
+curl -X GET "https://api.apiverve.com/v1/seovalidator?param=value" \
+  -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
 **Get your API key:** [https://apiverve.com](https://apiverve.com)
@@ -79,10 +74,10 @@ npm install @apiverve/seovalidator
 ### 🔷 NuGet (.NET/C#)
 
 ```bash
-dotnet add package APIVerve.API.SEOValidator
+dotnet add package APIVerve.API.SEOQuickValidator
 ```
 
-[**View NuGet Package →**](https://www.nuget.org/packages/APIVerve.API.SEOValidator) | [**Package Code →**](./nuget/)
+[**View NuGet Package →**](https://www.nuget.org/packages/APIVerve.API.SEOQuickValidator) | [**Package Code →**](./nuget/)
 
 ---
 
@@ -106,30 +101,45 @@ implementation 'com.github.apiverve:seovalidator-api:1.0.0'
 
 ---
 
-## Features
+### 🐹 Go
 
-✅ **Multi-platform support** - Use the same API across Node.js, .NET, Python, Android, and browsers
-✅ **Simple authentication** - Just add your API key in the request header
-✅ **Comprehensive documentation** - Full examples and API reference available
-✅ **Production-ready** - Used by developers worldwide
+```bash
+go get github.com/apiverve/seovalidator-api/go
+```
+
+[**Package Code →**](./go/)
+
+---
+
+## Why Use This API?
+
+| Feature | Benefit |
+|---------|---------|
+| **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
+| **Simple Integration** | Single API key authentication, consistent response format |
+| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
 
 ## Documentation
 
-📚 **Full API Documentation:** [https://docs.apiverve.com/ref/seovalidator](https://docs.apiverve.com/ref/seovalidator)
+- 🏠 **API Home:** [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 📚 **API Reference:** [docs.apiverve.com/ref/seovalidator](https://docs.apiverve.com/ref/seovalidator)
+- 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
+- 💡 **Examples:** [examples/](./examples/)
 
 ---
 
-## Use Cases
+## What Can You Build?
 
-Common use cases for the SEO Validator API:
+The SEO Quick Validator API is commonly used for:
 
-- ✅ Integration into web applications
-- ✅ Mobile app development
-- ✅ Data analysis and reporting
-- ✅ Automation workflows
-- ✅ Microservices architecture
+- **Web Applications** - Add seo quick validator features to your frontend or backend
+- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Automation** - Integrate with n8n, Zapier, or custom workflows
+- **SaaS Products** - Enhance your product with seo quick validator capabilities
+- **Data Pipelines** - Process and analyze data at scale
 
 ---
 
@@ -156,6 +166,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
+- 🏠 **API Home**: [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)
@@ -185,4 +196,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 Built with ❤️ by [APIVerve](https://apiverve.com)
 
-Copyright © 2025 APIVerve. All rights reserved.
+Copyright © 2026 APIVerve. All rights reserved.
