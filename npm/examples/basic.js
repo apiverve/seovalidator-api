@@ -1,7 +1,7 @@
 /**
- * Basic Example - SEO Validator API
+ * Basic Example - SEO Quick Validator API
  *
- * This example demonstrates how to use the SEO Validator API.
+ * This example demonstrates how to use the SEO Quick Validator API.
  * Make sure to set your API key in the .env file or replace '[YOUR_API_KEY]' below.
  */
 
@@ -19,7 +19,7 @@ var query = {
 };
 
 // Make the API request using callback
-console.log('Making request to SEO Validator API...\n');
+console.log('Making request to SEO Quick Validator API...\n');
 
 api.execute(query, function (error, data) {
     if (error) {
