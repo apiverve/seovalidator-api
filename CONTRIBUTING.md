@@ -1,4 +1,4 @@
-# Contributing to SEO Validator API
+# Contributing to SEO Quick Validator API
 
 Thank you for your interest in contributing! This guide will help you get started.
 
