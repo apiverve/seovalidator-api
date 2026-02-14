@@ -1,7 +1,7 @@
 """
-SEO Validator API - Basic Usage Example
+SEO Quick Validator API - Basic Usage Example
 
-This example demonstrates the basic usage of the SEO Validator API.
+This example demonstrates the basic usage of the SEO Quick Validator API.
 API Documentation: https://docs.apiverve.com/ref/seovalidator
 """
 
@@ -14,20 +14,14 @@ API_URL = 'https://api.apiverve.com/v1/seovalidator'
 
 def call_seovalidator_api():
     """
-    Make a POST request to the SEO Validator API
+    Make a GET request to the SEO Quick Validator API
     """
     try:
-        # Request body
-        request_body &#x3D; {
-    &#x27;url&#x27;: &#x27;https://apiverve.com&#x27;
-}
-
         headers = {
-            'x-api-key': API_KEY,
-            'Content-Type': 'application/json'
+            'x-api-key': API_KEY
         }
 
-        response = requests.post(API_URL, headers=headers, json=request_body)
+        response = requests.get(API_URL, headers=headers)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
@@ -48,7 +42,7 @@ def call_seovalidator_api():
         return None
 
 if __name__ == '__main__':
-    print('📤 Calling SEO Validator API...\n')
+    print('📤 Calling SEO Quick Validator API...\n')
 
     result = call_seovalidator_api()
 
