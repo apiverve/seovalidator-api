@@ -1,7 +1,7 @@
 /**
- * SEO Validator API - Error Handling Example
+ * SEO Quick Validator API - Error Handling Example
  *
- * This example demonstrates proper error handling when using the SEO Validator API.
+ * This example demonstrates proper error handling when using the SEO Quick Validator API.
  * API Documentation: https://docs.apiverve.com/ref/seovalidator
  */
 
@@ -20,17 +20,18 @@ class APIError extends Error {
 /**
  * Make an API call with comprehensive error handling
  */
-async function callSEOValidatorAPIWithErrorHandling(requestData) {
+async function callSEOQuickValidatorAPIWithErrorHandling(queryParams = {}) {
   try {
     console.log('📤 Making API request...');
 
-    const response = await fetch(API_URL, {
-      method: 'POST',
+    const params = new URLSearchParams(queryParams);
+    const url = `${API_URL}?${params}`;
+
+    const response = await fetch(url, {
+      method: 'GET',
       headers: {
-        'x-api-key': API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(requestData)
+        'x-api-key': API_KEY
+      }
     });
 
     // Parse response
@@ -104,8 +105,8 @@ async function callWithRetry(maxRetries = 3, initialDelay = 1000) {
     try {
       console.log(`\n🔄 Attempt ${attempt}/${maxRetries}`);
 
-      const result = await callSEOValidatorAPIWithErrorHandling({
-        // Your request data here
+      const result = await callSEOQuickValidatorAPIWithErrorHandling({
+        // Your query parameters here
       });
 
       return result;
