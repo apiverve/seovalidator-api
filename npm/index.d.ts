@@ -7,12 +7,12 @@ declare module '@apiverve/seovalidator' {
   export interface seovalidatorResponse {
     status: string;
     error: string | null;
-    data: SEOValidatorData;
+    data: SEOQuickValidatorData;
     code?: number;
   }
 
 
-  interface SEOValidatorData {
+  interface SEOQuickValidatorData {
       url:     string;
       passed:  boolean;
       entries: number;
