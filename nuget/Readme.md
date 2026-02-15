@@ -1,4 +1,4 @@
-APIVerve.API.SEOValidator API
+SEOQuickValidator API
 ============
 
 SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
@@ -7,7 +7,7 @@ SEO Validator is a simple tool for validating SEO metrics. It returns a list of 
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
 ![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a .NET Wrapper for the [APIVerve.API.SEOValidator API](https://apiverve.com/marketplace/seovalidator)
+This is a .NET Wrapper for the [SEOQuickValidator API](https://apiverve.com/marketplace/seovalidator?utm_source=nuget&utm_medium=readme)
 
 ---
 
@@ -15,17 +15,17 @@ This is a .NET Wrapper for the [APIVerve.API.SEOValidator API](https://apiverve.
 
 Using the .NET CLI:
 ```
-dotnet add package APIVerve.API.SEOValidator
+dotnet add package APIVerve.API.SEOQuickValidator
 ```
 
 Using the Package Manager:
 ```
-nuget install APIVerve.API.SEOValidator
+nuget install APIVerve.API.SEOQuickValidator
 ```
 
 Using the Package Manager Console:
 ```
-Install-Package APIVerve.API.SEOValidator
+Install-Package APIVerve.API.SEOQuickValidator
 ```
 
 From within Visual Studio:
@@ -33,15 +33,15 @@ From within Visual Studio:
 1. Open the Solution Explorer
 2. Right-click on a project within your solution
 3. Click on Manage NuGet Packages
-4. Click on the Browse tab and search for "APIVerve.API.SEOValidator"
-5. Click on the APIVerve.API.SEOValidator package, select the appropriate version in the right-tab and click Install
+4. Click on the Browse tab and search for "APIVerve.API.SEOQuickValidator"
+5. Click on the APIVerve.API.SEOQuickValidator package, select the appropriate version in the right-tab and click Install
 
 ---
 
 ## Configuration
 
 Before using the seovalidator API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com)
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=nuget&utm_medium=readme)
 
 ---
 
@@ -58,9 +58,9 @@ class Program
     static async Task Main(string[] args)
     {
         // Initialize the API client
-        var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+        var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new SEOValidatorQueryOptions {
+        var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -92,17 +92,17 @@ class Program
 
 ## Usage
 
-The APIVerve.API.SEOValidator API documentation is found here: [https://docs.apiverve.com/ref/seovalidator](https://docs.apiverve.com/ref/seovalidator).
+The SEOQuickValidator API documentation is found here: [https://docs.apiverve.com/ref/seovalidator](https://docs.apiverve.com/ref/seovalidator?utm_source=nuget&utm_medium=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
 
 ###### Authentication
-APIVerve.API.SEOValidator API uses API Key-based authentication. When you create an instance of the API client, you can pass your API Key as a parameter.
+SEOQuickValidator API uses API Key-based authentication. When you create an instance of the API client, you can pass your API Key as a parameter.
 
 ```csharp
 // Create an instance of the API client
-var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 ```
 
 ---
@@ -122,9 +122,9 @@ public class Example
 {
     public static async Task Main(string[] args)
     {
-        var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+        var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new SEOValidatorQueryOptions {
+        var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -154,9 +154,9 @@ public class Example
 {
     public static void Main(string[] args)
     {
-        var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+        var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new SEOValidatorQueryOptions {
+        var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -191,9 +191,9 @@ public class Example
 {
     public static async Task Main(string[] args)
     {
-        var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+        var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new SEOValidatorQueryOptions {
+        var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -243,13 +243,13 @@ public class Example
 {
     public static async Task Main(string[] args)
     {
-        var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+        var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
         // Configure retry behavior (max 3 retries)
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new SEOValidatorQueryOptions {
+        var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -284,13 +284,13 @@ public class Example
 Add custom headers to your requests:
 
 ```csharp
-var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
 // Add custom headers
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new SEOValidatorQueryOptions {
+var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -308,7 +308,7 @@ apiClient.ClearCustomHeaders();
 Enable logging for debugging:
 
 ```csharp
-var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]", isDebug: true);
+var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]", isDebug: true);
 
 // Or use a custom logger
 apiClient.SetLogger(message =>
@@ -316,7 +316,7 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new SEOValidatorQueryOptions {
+var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -328,13 +328,13 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 Customize retry behavior for failed requests:
 
 ```csharp
-var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]");
+var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
 // Set retry options
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new SEOValidatorQueryOptions {
+var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
 
@@ -346,9 +346,9 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-using (var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]"))
+using (var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]"))
 {
-    var queryOptions = new SEOValidatorQueryOptions {
+    var queryOptions = new QueryOptions {
   url = "https://apiverve.com"
 };
     var response = await apiClient.ExecuteAsync(queryOptions);
@@ -382,7 +382,7 @@ using (var apiClient = new SEOValidatorAPIClient("[YOUR_API_KEY]"))
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=nuget&utm_medium=readme).
 
 ---
 
@@ -393,14 +393,14 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=nuget&utm_medium=readme) and all legal documents and agreements.
 
 ---
 
 ## License
 Licensed under the The MIT License (MIT)
 
-Copyright (&copy;) 2025 APIVerve, and EvlarSoft LLC
+Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
