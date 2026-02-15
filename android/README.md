@@ -1,4 +1,4 @@
-# SEO Validator Android SDK
+# SEO Quick Validator Android SDK
 
 SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
 
@@ -26,7 +26,7 @@ Add the dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.github.apiverve:seovalidator-api:1.1.12'
+    implementation 'com.github.apiverve:seovalidator-api:1.1.13'
 }
 ```
 
@@ -37,17 +37,17 @@ dependencies {
 ### Basic Usage
 
 ```java
-import com.apiverve.seovalidator.SEOValidatorAPIClient;
+import com.apiverve.seovalidator.SEOQuickValidatorAPIClient;
 import com.apiverve.seovalidator.APIResponse;
 import com.apiverve.seovalidator.APIException;
 
 // Initialize the client
-SEOValidatorAPIClient client = new SEOValidatorAPIClient("YOUR_API_KEY");
+SEOQuickValidatorAPIClient client = new SEOQuickValidatorAPIClient("YOUR_API_KEY");
 
 try {
     // Prepare request parameters
     Map<String, Object> parameters = new HashMap<>();
-    parameters.put("key", "value");
+    parameters.put("url", "");
 
     // Execute the request
     APIResponse response = client.execute(parameters);
@@ -135,7 +135,7 @@ For detailed API documentation, visit: [https://docs.apiverve.com/ref/seovalidat
 
 ## Get Your API Key
 
-Get your API key from [https://apiverve.com](https://apiverve.com)
+Get your API key from [https://apiverve.com](https://apiverve.com?utm_source=android&utm_medium=readme)
 
 ---
 
@@ -162,4 +162,4 @@ This SDK is released under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## About APIVerve
 
-[APIVerve](https://apiverve.com) provides production-ready REST APIs for developers. Fast, reliable, and easy to integrate.
+[APIVerve](https://apiverve.com?utm_source=android&utm_medium=readme) provides production-ready REST APIs for developers. Fast, reliable, and easy to integrate.
