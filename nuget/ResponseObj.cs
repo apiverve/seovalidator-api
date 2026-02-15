@@ -6,7 +6,7 @@
 //
 //    var responseObj = ResponseObj.FromJson(jsonString);
 
-namespace APIVerve.API.SEOValidator
+namespace APIVerve.API.SEOQuickValidator
 {
     using System;
     using System.Collections.Generic;
