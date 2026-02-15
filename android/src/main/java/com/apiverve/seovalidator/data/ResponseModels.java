@@ -12,7 +12,7 @@
 //
 // Then you can deserialize a JSON string with
 //
-//     SEOValidatorData data = Converter.fromJsonString(jsonString);
+//     SEOQuickValidatorData data = Converter.fromJsonString(jsonString);
 
 package com.apiverve.seovalidator.data;
 
@@ -62,11 +62,11 @@ public class Converter {
     }
     // Serialize/deserialize helpers
 
-    public static SEOValidatorData fromJsonString(String json) throws IOException {
+    public static SEOQuickValidatorData fromJsonString(String json) throws IOException {
         return getObjectReader().readValue(json);
     }
 
-    public static String toJsonString(SEOValidatorData obj) throws JsonProcessingException {
+    public static String toJsonString(SEOQuickValidatorData obj) throws JsonProcessingException {
         return getObjectWriter().writeValueAsString(obj);
     }
 
@@ -87,8 +87,8 @@ public class Converter {
             }
         });
         mapper.registerModule(module);
-        reader = mapper.readerFor(SEOValidatorData.class);
-        writer = mapper.writerFor(SEOValidatorData.class);
+        reader = mapper.readerFor(SEOQuickValidatorData.class);
+        writer = mapper.writerFor(SEOQuickValidatorData.class);
     }
 
     private static ObjectReader getObjectReader() {
@@ -102,13 +102,13 @@ public class Converter {
     }
 }
 
-// SEOValidatorData.java
+// SEOQuickValidatorData.java
 
 package com.apiverve.seovalidator.data;
 
 import com.fasterxml.jackson.annotation.*;
 
-public class SEOValidatorData {
+public class SEOQuickValidatorData {
     private String url;
     private boolean passed;
     private long entries;
