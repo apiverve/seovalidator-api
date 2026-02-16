@@ -223,8 +223,9 @@ from apiverve_seoquickvalidator.apiClient import SeovalidatorAPIClient
 
 api = SeovalidatorAPIClient("[YOUR_API_KEY]")
 
+query = { "url": "https://apiverve.com" }
+
 try:
-    query = { "url": "https://apiverve.com" }
     result = api.execute(query)
     print(result)
 finally:
