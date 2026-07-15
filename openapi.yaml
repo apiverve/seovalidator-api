@@ -2,8 +2,9 @@ openapi: 3.0.4
 info:
   title: SEO Quick Validator
   description: >-
-    SEO Validator is a simple tool for validating SEO metrics. It returns a list
-    of issues that need to be fixed to improve the SEO metrics of a web page.
+    SEO Validator is a simple tool for validating SEO metrics. It returns a
+    structured breakdown of on-page SEO checks, a list of issues to fix, and a
+    composite 0-100 SEO score with a letter grade for the web page.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -45,10 +46,37 @@ paths:
                 data:
                   url: https://apiverve.com
                   passed: false
-                  entries: 2
-                  output:
-                    - There are 62 'a' tag without rel attribute.
-                    - This HTML does not have 'meta name=descriptions' in 'head'
+                  issueCount: 6
+                  issues:
+                    - >-
+                      Image missing 'alt' attribute:
+                      '/assets/img/hero-diagram.png'
+                    - 'Image missing ''alt'' attribute: ''/assets/img/logo-mark.svg'''
+                    - >-
+                      External link missing 'rel' attribute:
+                      'https://twitter.com/apiverve'
+                    - >-
+                      External link missing 'rel' attribute:
+                      'https://github.com/apiverve'
+                    - >-
+                      External link missing 'rel' attribute:
+                      'https://status.apiverve.com'
+                    - Missing meta 'keywords' tag in head
+                  checks:
+                    hasTitle: true
+                    titleLength: 54
+                    hasMetaDescription: true
+                    metaDescriptionLength: 158
+                    hasMetaKeywords: false
+                    h1Count: 1
+                    hasCanonical: true
+                    hasViewport: true
+                    imagesTotal: 8
+                    imagesMissingAlt: 2
+                    externalLinksTotal: 10
+                    externalLinksMissingRel: 3
+                  seoScore: 93
+                  grade: A
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
