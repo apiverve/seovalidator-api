@@ -1,12 +1,12 @@
 {
   "name": "@apiverve/seovalidator",
-  "version": "1.1.14",
-  "description": "SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.",
+  "version": "1.2.0",
+  "description": "SEO Validator is a simple tool for validating SEO metrics. It returns a structured breakdown of on-page SEO checks, a list of issues to fix, and a composite 0-100 SEO score with a letter grade for the web page.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "files": [
     "index.js",
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    ""
+    "seo validator", "seo validator api", "seo validator tool", "seo validator software", "seo validator service"
   ],
   "author": {
     "name": "APIVerve",
@@ -41,8 +41,7 @@
     "dotenv": "^16.4.7"
   },
   "dependencies": {
-    "node-fetch": "^3.3.2",
-    "promise": "^8.3.0",
-    "axios": "1.13.2"
+    "axios": "1.13.2",
+    "form-data": "^4.0.1"
   }
 }
