@@ -1,6 +1,6 @@
 # [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 
-SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
+SEO Validator is a simple tool for validating SEO metrics. It returns a structured breakdown of on-page SEO checks, a list of issues to fix, and a composite 0-100 SEO score with a letter grade for the web page.
 
 The SEO Quick Validator API provides a simple, reliable way to integrate seo quick validator functionality into your applications. Built for developers who need production-ready seo quick validator capabilities without the complexity of building from scratch.
 
@@ -8,7 +8,7 @@ The SEO Quick Validator API provides a simple, reliable way to integrate seo qui
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
-[![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
+[![Method](https://img.shields.io/badge/Method-POST-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
 **Available on:**
@@ -30,11 +30,17 @@ The SEO Quick Validator API provides a simple, reliable way to integrate seo qui
 ```javascript
 async function callSEOQuickValidatorAPI() {
     try {
+        const requestBody = {
+    "url": "https://apiverve.com"
+};
+
         const response = await fetch('https://api.apiverve.com/v1/seovalidator', {
-            method: 'GET',
+            method: 'POST',
             headers: {
-                'x-api-key': 'YOUR_API_KEY_HERE'
-            }
+                'x-api-key': 'YOUR_API_KEY_HERE',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
         });
 
         const data = await response.json();
@@ -50,8 +56,12 @@ callSEOQuickValidatorAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/seovalidator?param=value" \
-  -H "x-api-key: YOUR_API_KEY_HERE"
+curl -X POST "https://api.apiverve.com/v1/seovalidator" \
+  -H "x-api-key: YOUR_API_KEY_HERE" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://apiverve.com"
+}'
 ```
 
 **Get your API key:** [https://apiverve.com](https://apiverve.com)
@@ -150,7 +160,7 @@ go get github.com/apiverve/seovalidator-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +179,7 @@ go get github.com/apiverve/seovalidator-api/go
 The SEO Quick Validator API is commonly used for:
 
 - **Web Applications** - Add seo quick validator features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with seo quick validator capabilities
 - **Data Pipelines** - Process and analyze data at scale
