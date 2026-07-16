@@ -25,6 +25,9 @@ namespace APIVerve.API.SEOQuickValidator
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -33,12 +36,72 @@ namespace APIVerve.API.SEOQuickValidator
         public Uri Url { get; set; }
 
         [JsonProperty("passed")]
-        public bool Passed { get; set; }
+        public bool? Passed { get; set; }
 
-        [JsonProperty("entries")]
-        public long Entries { get; set; }
+        [JsonProperty("issueCount")]
+        public long? IssueCount { get; set; }
 
-        [JsonProperty("output")]
-        public string[] Output { get; set; }
+        [JsonProperty("issues")]
+        public string[] Issues { get; set; }
+
+        [JsonProperty("checks")]
+        public Checks Checks { get; set; }
+
+        [JsonProperty("seoScore")]
+        public long? SeoScore { get; set; }
+
+        [JsonProperty("grade")]
+        public string Grade { get; set; }
+    }
+
+    public partial class Checks
+    {
+        [JsonProperty("hasTitle")]
+        public bool? HasTitle { get; set; }
+
+        [JsonProperty("titleLength")]
+        public long? TitleLength { get; set; }
+
+        [JsonProperty("hasMetaDescription")]
+        public bool? HasMetaDescription { get; set; }
+
+        [JsonProperty("metaDescriptionLength")]
+        public long? MetaDescriptionLength { get; set; }
+
+        [JsonProperty("hasMetaKeywords")]
+        public bool? HasMetaKeywords { get; set; }
+
+        [JsonProperty("h1Count")]
+        public long? H1Count { get; set; }
+
+        [JsonProperty("hasCanonical")]
+        public bool? HasCanonical { get; set; }
+
+        [JsonProperty("hasViewport")]
+        public bool? HasViewport { get; set; }
+
+        [JsonProperty("imagesTotal")]
+        public long? ImagesTotal { get; set; }
+
+        [JsonProperty("imagesMissingAlt")]
+        public long? ImagesMissingAlt { get; set; }
+
+        [JsonProperty("externalLinksTotal")]
+        public long? ExternalLinksTotal { get; set; }
+
+        [JsonProperty("externalLinksMissingRel")]
+        public long? ExternalLinksMissingRel { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
