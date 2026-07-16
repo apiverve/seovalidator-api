@@ -1,7 +1,7 @@
 SEOQuickValidator API
 ============
 
-SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
+SEO Validator is a simple tool for validating SEO metrics. It returns a structured breakdown of on-page SEO checks, a list of issues to fix, and a composite 0-100 SEO score with a letter grade for the web page.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -51,7 +51,7 @@ Here's a simple example to get you started quickly:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.SEOQuickValidator;
 
 class Program
 {
@@ -60,7 +60,7 @@ class Program
         // Initialize the API client
         var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -116,7 +116,7 @@ The modern async/await pattern provides the best performance and code readabilit
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.SEOQuickValidator;
 
 public class Example
 {
@@ -124,7 +124,7 @@ public class Example
     {
         var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -148,7 +148,7 @@ If you need to use synchronous code, you can use the `Execute` method:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.SEOQuickValidator;
 
 public class Example
 {
@@ -156,7 +156,7 @@ public class Example
     {
         var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -185,7 +185,7 @@ The API client provides comprehensive error handling. Here are some examples:
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.SEOQuickValidator;
 
 public class Example
 {
@@ -193,7 +193,7 @@ public class Example
     {
         var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -237,7 +237,7 @@ public class Example
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.SEOQuickValidator;
 
 public class Example
 {
@@ -249,7 +249,7 @@ public class Example
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -290,7 +290,7 @@ var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new QueryOptions {
+var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -316,7 +316,7 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new QueryOptions {
+var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -334,7 +334,7 @@ var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]");
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new QueryOptions {
+var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -346,7 +346,7 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-var queryOptions = new QueryOptions {
+var queryOptions = new SEOQuickValidatorQueryOptions {
     url = "https://apiverve.com"
 };
 
@@ -367,14 +367,33 @@ using (var apiClient = new SEOQuickValidatorAPIClient("[YOUR_API_KEY]"))
   "status": "ok",
   "error": null,
   "data": {
-    "url": "https://ebay.com",
+    "url": "https://apiverve.com",
     "passed": false,
-    "entries": 3,
-    "output": [
-      "There are 319 'a' tag without rel attribute.",
-      "This HTML does not have 'meta name=descriptions' in 'head'",
-      "This HTML does not have 'meta name=keywords' in 'head'"
-    ]
+    "issueCount": 6,
+    "issues": [
+      "Image missing 'alt' attribute: '/assets/img/hero-diagram.png'",
+      "Image missing 'alt' attribute: '/assets/img/logo-mark.svg'",
+      "External link missing 'rel' attribute: 'https://twitter.com/apiverve'",
+      "External link missing 'rel' attribute: 'https://github.com/apiverve'",
+      "External link missing 'rel' attribute: 'https://status.apiverve.com'",
+      "Missing meta 'keywords' tag in head"
+    ],
+    "checks": {
+      "hasTitle": true,
+      "titleLength": 54,
+      "hasMetaDescription": true,
+      "metaDescriptionLength": 158,
+      "hasMetaKeywords": false,
+      "h1Count": 1,
+      "hasCanonical": true,
+      "hasViewport": true,
+      "imagesTotal": 8,
+      "imagesMissingAlt": 2,
+      "externalLinksTotal": 10,
+      "externalLinksMissingRel": 3
+    },
+    "seoScore": 93,
+    "grade": "A"
   }
 }
 ```
