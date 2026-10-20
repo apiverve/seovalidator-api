@@ -1,13 +1,12 @@
 SEO Quick Validator API
 ============
 
-SEO Validator is a simple tool for validating SEO metrics. It returns a list of issues that need to be fixed to improve the SEO metrics of a web page.
+SEO Quick Validator inspects live web pages for on-page SEO errors and tag issues. Pass any URL to inspect title lengths, meta descriptions, H1 headings, viewport and canonical tags, image alt text, and unverified external links.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-seoquickvalidator.svg)](https://pypi.org/project/apiverve-seoquickvalidator/)
+
+This is a Python wrapper for the [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-seoquickvalidator
 
 ## Configuration
 
-Before using the seovalidator API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the SEO Quick Validator API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -60,7 +59,7 @@ except Exception as e:
 
 ## Usage
 
-The SEO Quick Validator API documentation is found here: [https://docs.apiverve.com/ref/seovalidator](https://docs.apiverve.com/ref/seovalidator?utm_source=pypi&utm_medium=readme).
+The SEO Quick Validator API documentation is found here: [https://docs.apiverve.com/ref/seovalidator](https://docs.apiverve.com/ref/seovalidator?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -102,14 +101,33 @@ print(result)
   "status": "ok",
   "error": null,
   "data": {
-    "url": "https://ebay.com",
+    "url": "https://apiverve.com",
     "passed": false,
-    "entries": 3,
-    "output": [
-      "There are 319 'a' tag without rel attribute.",
-      "This HTML does not have 'meta name=descriptions' in 'head'",
-      "This HTML does not have 'meta name=keywords' in 'head'"
-    ]
+    "issueCount": 6,
+    "issues": [
+      "Image missing 'alt' attribute: '/assets/img/hero-diagram.png'",
+      "Image missing 'alt' attribute: '/assets/img/logo-mark.svg'",
+      "External link missing 'rel' attribute: 'https://twitter.com/apiverve'",
+      "External link missing 'rel' attribute: 'https://github.com/apiverve'",
+      "External link missing 'rel' attribute: 'https://status.apiverve.com'",
+      "Missing meta 'keywords' tag in head"
+    ],
+    "checks": {
+      "hasTitle": true,
+      "titleLength": 54,
+      "hasMetaDescription": true,
+      "metaDescriptionLength": 158,
+      "hasMetaKeywords": false,
+      "h1Count": 1,
+      "hasCanonical": true,
+      "hasViewport": true,
+      "imagesTotal": 8,
+      "imagesMissingAlt": 2,
+      "externalLinksTotal": 10,
+      "externalLinksMissingRel": 3
+    },
+    "seoScore": 93,
+    "grade": "A"
   }
 }
 ```
@@ -237,7 +255,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -248,12 +266,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
