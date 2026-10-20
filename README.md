@@ -1,13 +1,13 @@
-# [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-SEO Validator is a simple tool for validating SEO metrics. It returns a structured breakdown of on-page SEO checks, a list of issues to fix, and a composite 0-100 SEO score with a letter grade for the web page.
+SEO Quick Validator inspects live web pages for on-page SEO errors and tag issues. Pass any URL to inspect title lengths, meta descriptions, H1 headings, viewport and canonical tags, image alt text, and unverified external links.
 
 The SEO Quick Validator API provides a simple, reliable way to integrate seo quick validator functionality into your applications. Built for developers who need production-ready seo quick validator capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-POST-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -167,7 +167,7 @@ go get github.com/apiverve/seovalidator-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/seovalidator](https://docs.apiverve.com/ref/seovalidator)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -197,11 +197,54 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the SEO Quick Validator API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "url": "https://apiverve.com",
+    "passed": false,
+    "issueCount": 6,
+    "issues": [
+      "Image missing 'alt' attribute: '/assets/img/hero-diagram.png'",
+      "Image missing 'alt' attribute: '/assets/img/logo-mark.svg'",
+      "External link missing 'rel' attribute: 'https://twitter.com/apiverve'",
+      "External link missing 'rel' attribute: 'https://github.com/apiverve'",
+      "External link missing 'rel' attribute: 'https://status.apiverve.com'",
+      "Missing meta 'keywords' tag in head"
+    ],
+    "checks": {
+      "hasTitle": true,
+      "titleLength": 54,
+      "hasMetaDescription": true,
+      "metaDescriptionLength": 158,
+      "hasMetaKeywords": false,
+      "h1Count": 1,
+      "hasCanonical": true,
+      "hasViewport": true,
+      "imagesTotal": 8,
+      "imagesMissingAlt": 2,
+      "externalLinksTotal": 10,
+      "externalLinksMissingRel": 3
+    },
+    "seoScore": 93,
+    "grade": "A"
+  }
 }
 ```
 
@@ -209,7 +252,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
-- 🏠 **API Home**: [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [SEO Quick Validator API](https://apiverve.com/marketplace/seovalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

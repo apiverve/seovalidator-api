@@ -2,9 +2,10 @@ openapi: 3.0.4
 info:
   title: SEO Quick Validator
   description: >-
-    SEO Validator is a simple tool for validating SEO metrics. It returns a
-    structured breakdown of on-page SEO checks, a list of issues to fix, and a
-    composite 0-100 SEO score with a letter grade for the web page.
+    SEO Quick Validator inspects live web pages for on-page SEO errors and tag
+    issues. Pass any URL to inspect title lengths, meta descriptions, H1
+    headings, viewport and canonical tags, image alt text, and unverified
+    external links.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -19,7 +20,7 @@ servers:
 paths:
   /v1/seovalidator:
     post:
-      summary: Validate SEO Metrics
+      summary: SEO Quick Validator
       description: Validate the SEO metrics of a web page
       operationId: seovalidator
       parameters: []
