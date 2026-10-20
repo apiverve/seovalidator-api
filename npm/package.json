@@ -1,7 +1,7 @@
 {
   "name": "@apiverve/seovalidator",
-  "version": "1.2.0",
-  "description": "SEO Validator is a simple tool for validating SEO metrics. It returns a structured breakdown of on-page SEO checks, a list of issues to fix, and a composite 0-100 SEO score with a letter grade for the web page.",
+  "version": "1.2.2",
+  "description": "SEO Quick Validator inspects live web pages for on-page SEO errors and tag issues. Pass any URL to inspect title lengths, meta descriptions, H1 headings, viewport and canonical tags, image alt text, and unverified external links.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "seo validator", "seo validator api", "seo validator tool", "seo validator software", "seo validator service"
+    "seo validator api", "on-page seo check", "check meta tags", "audit webpage seo", "validate h1 tags"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/seovalidator-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/seovalidator?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/seovalidator?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
