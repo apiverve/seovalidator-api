@@ -127,7 +127,9 @@ print(result)
       "externalLinksMissingRel": 3
     },
     "seoScore": 93,
-    "grade": "A"
+    "grade": "A",
+    "titleRelevance": 47.91,
+    "descriptionRelevance": 51.65
   }
 }
 ```
