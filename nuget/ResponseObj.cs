@@ -52,6 +52,12 @@ namespace APIVerve.API.SEOQuickValidator
 
         [JsonProperty("grade")]
         public string Grade { get; set; }
+
+        [JsonProperty("titleRelevance")]
+        public double? TitleRelevance { get; set; }
+
+        [JsonProperty("descriptionRelevance")]
+        public double? DescriptionRelevance { get; set; }
     }
 
     public partial class Checks
