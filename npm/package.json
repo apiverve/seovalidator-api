@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/seovalidator",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "SEO Quick Validator inspects live web pages for on-page SEO errors and tag issues. Pass any URL to inspect title lengths, meta descriptions, H1 headings, viewport and canonical tags, image alt text, and unverified external links.",
   "main": "index.js",
   "types": "index.d.ts",

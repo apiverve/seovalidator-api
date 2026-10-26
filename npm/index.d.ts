@@ -25,13 +25,15 @@ declare module '@apiverve/seovalidator' {
 
 
   interface SEOQuickValidatorData {
-      url:        null | string;
-      passed:     boolean | null;
-      issueCount: number | null;
-      issues:     (null | string)[];
-      checks:     Checks;
-      seoScore:   number | null;
-      grade:      null | string;
+      url:                  null | string;
+      passed:               boolean | null;
+      issueCount:           number | null;
+      issues:               (null | string)[];
+      checks:               Checks;
+      seoScore:             number | null;
+      grade:                null | string;
+      titleRelevance:       number | null;
+      descriptionRelevance: number | null;
   }
   
   interface Checks {
